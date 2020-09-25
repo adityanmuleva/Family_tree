@@ -8,6 +8,6 @@ class Create:
                            unique_id=unique_id, person_name=person_name, age=age, gender=gender)
 
 
-# my_obj = Create()
-# res = my_obj.create_nodes("Aadi_id", "Aaditya_muleva", 21, "Male")
-# print("node_created")
+my_obj = Create()
+res = my_obj.create_nodes("Aadi_id", "Aaditya_muleva", 21, "Male")
+print("node_created")
