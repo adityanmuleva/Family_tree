@@ -4,7 +4,7 @@ session = Connect.connection()
 
 class DeleteAllData:
     @staticmethod
-    def delete_all(self=None):
+    def delete_all():
         return session.run("MATCH (n) DETACH DELETE n")
 
 
