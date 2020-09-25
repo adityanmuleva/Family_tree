@@ -1,0 +1,173 @@
+
+==================================================================================================================================================================================================================================================
+How to search array element in mongo?
+
+source -- https://www.tutorialspoint.com/mongodb/mongodb_query_document.htm
+
+(
+1 - get all data using registration id
+2 - get hobby whuch have both item 1 and item 2 --  collection.find({"$and": [{"Hobbies": "Football"}, {"Hobbies": "Cricket"}]})      ,         collection.find({"Hobbies": {'$all': ["Cricket", "Football"]}})
+3 - get hobby which have items in common --- collection.find({"Hobbies": {'$all': ["Cricket"]}})
+4 - get hobby which have any of item 1 or item 2 -------  collection.find({"$or": [{"Hobbies": "Football"}, {"Hobbies": "chess"}]})
+5 - get hobbies which have neither item 1 nor item 2 ---  collection.find({'$nor': [{"Hobbies": "chess"}, {"Hobbies": "Hardware"}]})
+)
+
+==================================================================================================================================================================================================================================================
+
+https://stackoverflow.com/questions/47033632/send-json-request-to-flask-via-curl
+
+==================================================================================================================================================================================================================================================
+
+# Rest api with flask
+
+create - post
+find - get
+update - put
+delete -delete
+
+#installation
+https://timmyreilly.azurewebsites.net/python-flask-windows-development-environment-setup/
+
+#reference
+https://nicolewhite.github.io/neo4j-flask/
+
+==================================================================================================================================================================================================================================================
+postgres ---
+
+https://www.tutorialspoint.com/postgresql/postgresql_python.htm
+===================================================================================================================================================================================================================================================================================================
+
+primary key vs unique key---
+
+both hold important data
+primary key cannot have null value
+unique key can have
+
+========================================================================================================================================================================================================================================
+https://www.tutorialspoint.com/neo4j/neo4j_cql_introduction.htm
+
+Neo 4 j -
+
+CREATE (Bhikaji: Parent{name: "Bhikaji Muleva", age: 100, Gender: "Male"})
+CREATE (Harish: Son_of_bhikaji{name: "Harish Muleva", age: 40, Gender : "Male"})
+CREATE (Bhagwan: Son_of_bhikaji{name: "Bhagwan Muleva", age: 50, Gender : "Male"})
+CREATE (Lakshman: Son_of_bhikaji{name: "Lakshman Muleva", age: 55, Gender: "Male"})
+CREATE (Harish)-[r:Son_of]->(Bhikaji)
+CREATE (Bhagwan)-[r1:Son_of]->(Bhikaji)
+CREATE (Lakshman)-[r2:Son_of]->(Bhikaji)
+CREATE (Santosh: son_of_bhagwan{name:"Santosh Muleva", age:32, Gender: "Male" })
+CREATE (Santosh)-[r3:Son_of]->(Bhagwan)
+CREATE (Rajendra: son_of_bhagwan{name: "Ranjendra Muleva", age:28, Gender: "Male"})
+CREATE (Rajendra)-[r4:Son_of]->(Bhagwan)
+CREATE (Kapil: son_of_lakshman{name: "Kapil Muleva", age: 29, Gender: "Male"})
+CREATE (Kapil)-[r5:Son_of]->(Lakshman)
+CREATE (Arpita: Daughter_of_Harish{name: "Arpita Muleva", age: 18, Gender: "Female"})
+CREATE (Arpita)-[r6:Daughter_of]->(Harish)
+CREATE (Krishna: Son_of_Harish{name:"Krishna Muleva", age:15, Gender: "Male"})
+CREATE (Krishna)-[r7:Son_of]->(Harish)
+CREATE (Aaditya:Son_of_santosh{name:"Aaditya Muleva", age:22, Gender: "Male"})
+CREATE (Jay:Son_of_santosh{name:"Jay Muleva", age:19, Gender: "Male"})
+CREATE (Gaurav:Son_of_rajendra{name:"Gaurav Muleva", age:18, Gender: "Male"})
+CREATE (Aaditya)-[r8:Son_of]->(Santosh)
+CREATE (Jay)-[r9: Son_of]->(Santosh)
+CREATE (Gaurav)-[r10: Son_of]->(Rajendra)
+RETURN Bhikaji,Bhagwan,Lakshman,Harish,Santosh,Rajendra,Kapil,Arpita,Krishna,Aaditya,Jay,Gaurav
+
+Create a node -
+CREATE (node_name),(node_name)
+
+Create node with label
+CREATE (node:label)
+
+match and return nodes
+MATCH (node_name) RETURN node_name
+
+Create a relationship between two nodes
+CREATE (node_a_name)-[rn: relation_name]->(node_b_name)
+RETUEN node_names
+
+DELETE all nodes
+MATCH (n) DETACH DELETE n
+
+
+====================================================================================================================================================================================================
+ELK(Elastic search , logstack, kibana)
+
+https://elasticsearch.tutorials24x7.com/blog/how-to-install-elasticsearch-kibana-and-logstash-elk-elastic-stack-on-windows
+
+
+====================================================================================================================================================================================================================================
+EC2 (AWS)
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?icmpid=docs_ec2_console
+
+example-
+ssh -i "AWS test key.pem" ec2-user@ec2-13-250-118-20.ap-southeast-1.compute.amazonaws.com
+
+1) go to aws
+2) login and launch an instance
+3) you will get a .pem file that is key for login.
+4) open putty gen from start and select RSA parameter.
+5) then select load you have to load the .pem file.
+6) then click on generate and save the primary key.
+7) Run putty
+8) Enter host name which you got from aws instance.
+9) check port is 22 and COnnection type is SSH.
+10) Go to categories > Connection > SSH > Auth
+11) Browse and upload the primary key which was generated by putty gen.
+12) save and click open.
+13) you will get a terminal so it will ask about user name it is ec2-user which i got from example.
+
+-------------------------------------------
+$ is for user and # is for root user (host)
+open cygwin
+1) login -> ssh root@ip or domain - example -> ssh root@164.52.200.133 or ssh root@gyanstream.in
+2) open win scp you can do anything manually
+3) again in cygwin to copy from remote to host(cloud to my machine) -> scp root@gyanstream.in:/tmp/hcm1.txt /cygdrive/c/AWS/
+4) to copy from host to remote (machine to cloud ) -> scp /cygdrive/c/AWS/.txt root@gyanstream.in:/tmp/
+
+
+====== Assignment for Test framework -----=======
+There are two DB: TEST and other is prod
+
+WorkLoad: 70% student, 20% teacher, 5% admin and 5% parent
+
+Step1: data population for testing:
+
+	back up and restore:
+	50 users data, 100 user data, 200 user data, 250 user data....
+base line:
+	1) nmon to get system parameter [CPU, Memory, Disk(I/O)]
+	2) Response time and Errors
+Performance test case pass failed criteria:
+	Load testing:
+		pages:
+			syllabus,
+			course,
+			quiz,
+
+	1. Create test data in mongo(dbName: TEST, collection name:"CREATE", DELETE, UPDATE and QUERY)
+
+Step2. Execute Test:
+	TC1_S: (Create student)
+		step1: get data from TEST DB
+		step2: create student using this data. (which will create inside prod db). This step will give you an document id.
+		step3: varify created student.(read prod db using document id created in step2). Then compare retrived data with step1
+
+	TC2:
+
+
+testing :
+0) architecture ;- server api's developed in python : client (mobile and web);(react js and react native)
+1) unit testing : - server Api's using pytest
+2) functional : - UI testing :- using selenium
+3) performance or non functional testing :- tool - jmeter & nmon (load test & stress)
+
+
+
+
+ssh -i "Aws_key_12sept.pem" ec2-user@ec2-13-212-122-129.ap-southeast-1.compute.amazonaws.com
+
+=============================================================================================================================================================================================================================================================
+Ghenkin--
+
+https://pypi.org/project/pytest-bdd/
